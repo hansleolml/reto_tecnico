@@ -12,3 +12,8 @@ output "location" {
   description = "La ubicación de los recursos creados."
   value       = azurerm_resource_group.rg_net_01.location
 }
+
+output "public_ip" {
+  description = "IP Publica de la virtual machine creada"
+  value       = module.vmachine.public_ip
+}
