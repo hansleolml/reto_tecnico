@@ -28,11 +28,6 @@ variable "vm_admin" {
   type        = string
 }
 
-variable "net_sec_group_name" {
-  description = "Nombre del network security group"
-  type        = string
-}
-
 variable "vnet_name" {
   description = "Nombre de la virtual network"
   type        = string
@@ -40,11 +35,6 @@ variable "vnet_name" {
 
 variable "subnet_id" {
   description = "id de la subnet"
-  type        = string
-}
-
-variable "vnet_tag_env" {
-  description = "Tag de la virtual network"
   type        = string
 }
 

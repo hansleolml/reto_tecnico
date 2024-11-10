@@ -25,15 +25,15 @@ resource "azurerm_subnet" "subnet_01" {
 }
 
 module "vmachine" {
-  source = "./modules/virtual_machine" # Ruta al módulo
-  location = azurerm_resource_group.rg_vm_01.location
-  rg_name                      = azurerm_resource_group.rg_vm_01.name
-  vm_name = "virtual_machine_jenkins"
-  vm_admin= "admin"
-  vm_sku = "22_04-lts"
-  vm_size = "Standard_F2"
-  subnet_name             = azurerm_subnet.subnet_01.name
-  subnet_id = azurerm_subnet.subnet_01.id
-  vnet_name                    = "vnet-mod"
-  nic_name = "nic_vm_01"
+  source      = "./modules/virtual_machine" # Ruta al módulo
+  location    = azurerm_resource_group.rg_vm_01.location
+  rg_name     = azurerm_resource_group.rg_vm_01.name
+  vm_name     = "virtual-machine-jenkins"
+  vm_admin    = "leo"
+  vm_sku      = "22_04-lts"
+  vm_size     = "Standard_DS1_v2"
+  subnet_name = azurerm_subnet.subnet_01.name
+  subnet_id   = azurerm_subnet.subnet_01.id
+  vnet_name   = "vnet-mod"
+  nic_name    = "nic_vm_01"
 }
