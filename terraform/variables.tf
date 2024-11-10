@@ -8,6 +8,11 @@ variable "rg_vm_01_name" {
   type        = string
 }
 
+variable "nsg_01_name" {
+  description = "El nombre del grupo de recursos de las VM a crear."
+  type        = string
+}
+
 variable "location" {
   description = "La ubicación donde se creará el grupo de recursos."
   type        = string

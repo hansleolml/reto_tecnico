@@ -8,6 +8,16 @@ variable "rg_name" {
   type        = string
 }
 
+variable "nsg_01_id" {
+  description = "ID del network security group"
+  type        = string
+}
+
+variable "ip_public_01_name" {
+  description = "Nombre de la virtual machine"
+  type        = string
+}
+
 variable "vm_name" {
   description = "Nombre de la virtual machine"
   type        = string

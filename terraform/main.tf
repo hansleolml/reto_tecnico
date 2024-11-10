@@ -10,6 +10,24 @@ resource "azurerm_resource_group" "rg_vm_01" {
   tags     = var.tags
 }
 
+resource "azurerm_network_security_group" "nsg_01" {
+  name                = var.nsg_01_name
+  location            = azurerm_resource_group.rg_net_01.location
+  resource_group_name = azurerm_resource_group.rg_net_01.name
+
+  security_rule {
+    name                       = "rule-inbound-22"
+    priority                   = 100
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "*"
+    source_port_range          = "22"
+    destination_port_range     = "22"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+}
+
 resource "azurerm_virtual_network" "vnet_01" {
   name                = var.vnet_name
   address_space       = ["10.0.0.0/16"]
@@ -36,4 +54,6 @@ module "vmachine" {
   subnet_id   = azurerm_subnet.subnet_01.id
   vnet_name   = "vnet-mod"
   nic_name    = "nic_vm_01"
+  nsg_01_id = azurerm_network_security_group.nsg_01.id
+  ip_public_01_name = "ip-publica-01"
 }

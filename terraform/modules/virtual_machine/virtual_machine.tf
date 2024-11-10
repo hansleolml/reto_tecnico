@@ -6,8 +6,22 @@ resource "azurerm_network_interface" "nic_01" {
   ip_configuration {
     name                          = "internal"
     subnet_id                     = var.subnet_id
-    private_ip_address_allocation = "Dynamic"
+    private_ip_address_allocation = "Static"
+    public_ip_address_id= azurerm_public_ip.ip_public_01.id
   }
+}
+
+resource "azurerm_network_interface_security_group_association" "nic_nsg_01" {
+  network_interface_id      = azurerm_network_interface.nic_01.id
+  network_security_group_id = var.nsg_01_id
+}
+
+resource "azurerm_public_ip" "ip_public_01" {
+  name                = var.ip_public_01_name
+  resource_group_name = azurerm_network_interface.nic_01.resource_group_name
+  location            = azurerm_network_interface.nic_01.location
+  allocation_method   = "Static"
+
 }
 
 resource "azurerm_linux_virtual_machine" "vmachine_01" {
