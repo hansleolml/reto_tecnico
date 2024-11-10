@@ -8,6 +8,26 @@ variable "rg_name" {
   type        = string
 }
 
+variable "vm_name" {
+  description = "Nombre de la virtual machine"
+  type        = string
+}
+
+variable "vm_size" {
+  description = "size de la virtual machine"
+  type        = string
+}
+
+variable "vm_sku" {
+  description = "sku de la virtual machine"
+  type        = string
+}
+
+variable "vm_admin" {
+  description = "admin de la virtual machine"
+  type        = string
+}
+
 variable "net_sec_group_name" {
   description = "Nombre del network security group"
   type        = string
@@ -15,6 +35,11 @@ variable "net_sec_group_name" {
 
 variable "vnet_name" {
   description = "Nombre de la virtual network"
+  type        = string
+}
+
+variable "subnet_id" {
+  description = "id de la subnet"
   type        = string
 }
 
@@ -29,12 +54,12 @@ variable "address_space" {
   default     = ["10.1.0.0/16"]
 }
 
-variable "subnet_name_sub1" {
+variable "subnet_name" {
   description = "Nombre de la subnet"
   type        = string
 }
 
-variable "subnet_name_sub2" {
+variable "nic_name" {
   description = "Nombre de la subnet"
   type        = string
 }

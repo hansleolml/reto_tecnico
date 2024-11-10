@@ -1,5 +1,10 @@
-variable "resource_group_name" {
-  description = "El nombre del grupo de recursos a crear."
+variable "rg_net_01_name" {
+  description = "El nombre del grupo de recursos de las VNET y Subnet a crear."
+  type        = string
+}
+
+variable "rg_vm_01_name" {
+  description = "El nombre del grupo de recursos de las VM a crear."
   type        = string
 }
 
@@ -17,9 +22,12 @@ variable "tags" {
   }
 }
 
-variable "rg_vnet_name" {
-  description = "Nombre del resource group"
+variable "vnet_name" {
+  description = "Nombre de la virtual network"
   type        = string
 }
 
-
+variable "subnet_name" {
+  description = "Nombre de la subnet"
+  type        = string
+}
