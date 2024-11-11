@@ -10,11 +10,6 @@ resource "azurerm_resource_group" "rg_vm_01" {
   tags     = var.tags
 }
 
-resource "azurerm_resource_group" "rg_aks_01" {
-  name     = var.rg_aks_01_name
-  location = var.location
-}
-
 resource "azurerm_network_security_group" "nsg_01" {
   name                = var.nsg_01_name
   location            = azurerm_resource_group.rg_net_01.location
@@ -71,5 +66,5 @@ module "vmachine" {
   vnet_name         = "vnet-mod"
   nic_name          = "nic-vm-01"
   nsg_01_id         = azurerm_network_security_group.nsg_01.id
-  ip_public_01_name = "ip-publica-vm-01"
+  ip_public_01_name = "ip-publica-01"
 }

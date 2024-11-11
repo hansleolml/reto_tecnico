@@ -43,17 +43,12 @@ variable "default_node_pool_node_count" {
   type        = string
 }
 
-variable "default_node_pool_min_count" {
-  description = "Ubicación del resource group"
-  type        = string
-}
-
-variable "default_node_pool_max_count" {
-  description = "Ubicación del resource group"
-  type        = string
-}
-
 variable "default_node_pool_vm_size" {
+  description = "Ubicación del resource group"
+  type        = string
+}
+
+variable "default_node_pool_vnet_subnet_id" {
   description = "Ubicación del resource group"
   type        = string
 }
