@@ -10,6 +10,11 @@ resource "azurerm_resource_group" "rg_vm_01" {
   tags     = var.tags
 }
 
+resource "azurerm_resource_group" "rg_aks_01" {
+  name     = var.rg_aks_01_name
+  location = var.location
+}
+
 resource "azurerm_network_security_group" "nsg_01" {
   name                = var.nsg_01_name
   location            = azurerm_resource_group.rg_net_01.location
@@ -40,14 +45,14 @@ resource "azurerm_network_security_group" "nsg_01" {
 }
 
 resource "azurerm_virtual_network" "vnet_01" {
-  name                = var.vnet_name
+  name                = var.vnet_01_name
   address_space       = ["10.0.0.0/16"]
   location            = azurerm_resource_group.rg_net_01.location
   resource_group_name = azurerm_resource_group.rg_net_01.name
 }
 
 resource "azurerm_subnet" "subnet_01" {
-  name                 = var.subnet_name
+  name                 = var.subnet_01_name
   resource_group_name  = azurerm_virtual_network.vnet_01.resource_group_name
   virtual_network_name = azurerm_virtual_network.vnet_01.name
   address_prefixes     = ["10.0.2.0/24"]
@@ -66,5 +71,5 @@ module "vmachine" {
   vnet_name         = "vnet-mod"
   nic_name          = "nic-vm-01"
   nsg_01_id         = azurerm_network_security_group.nsg_01.id
-  ip_public_01_name = "ip-publica-01"
+  ip_public_01_name = "ip-publica-vm-01"
 }

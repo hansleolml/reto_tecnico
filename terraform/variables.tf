@@ -13,7 +13,17 @@ variable "nsg_01_name" {
   type        = string
 }
 
+variable "rg_aks_01_name" {
+  description = "El nombre del grupo de recursos de las VM a crear."
+  type        = string
+}
+
 variable "location" {
+  description = "La ubicación donde se creará el grupo de recursos."
+  type        = string
+}
+
+variable "location_aks" {
   description = "La ubicación donde se creará el grupo de recursos."
   type        = string
 }
@@ -27,12 +37,22 @@ variable "tags" {
   }
 }
 
-variable "vnet_name" {
+variable "vnet_01_name" {
   description = "Nombre de la virtual network"
   type        = string
 }
 
-variable "subnet_name" {
+variable "vnet_02_name" {
+  description = "Nombre de la virtual network"
+  type        = string
+}
+
+variable "subnet_01_name" {
+  description = "Nombre de la subnet"
+  type        = string
+}
+
+variable "subnet_02_name" {
   description = "Nombre de la subnet"
   type        = string
 }
