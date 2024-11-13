@@ -3,12 +3,22 @@ entries:
   probando:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-12T17:12:34.732373937-05:00"
+    created: "2024-11-12T20:40:25.824929426-05:00"
     description: A Helm chart for Kubernetes
-    digest: 39bc3ec23300760c0f0c81362327288f2c54e103ad1dd751bebbe4c35f8b7984
+    digest: d548fc7bcb77789e7db330d2942f488f1580d07520b42520d3d28e1ec8e2f0d0
+    name: probando
+    type: application
+    urls:
+    - charts/probando-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-11-12T20:40:25.824537724-05:00"
+    description: A Helm chart for Kubernetes
+    digest: fa504cbb6b2dc062b7de6b0150a4bf4e672fcc4bfdde77232753bd9aa9aecc0b
     name: probando
     type: application
     urls:
     - charts/probando-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-12T17:12:34.731190098-05:00"
+generated: "2024-11-12T20:40:25.823995407-05:00"
