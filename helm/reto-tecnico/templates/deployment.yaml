@@ -27,7 +27,6 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "reto-tecnico.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
@@ -48,7 +47,7 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
             - name: ENVIRONMENT
-              value: "{{ .Values.env }}"
+              value: {{ .Values.environment }}
             - name: SECRET_VALUE
               valueFrom:
                 secretKeyRef:

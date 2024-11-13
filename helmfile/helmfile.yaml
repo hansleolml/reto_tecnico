@@ -1,10 +1,10 @@
 environments:
   dev:
     values:
-      - values-dev.yaml  # Archivo de valores para dev
+      - values-dev.yaml 
   stage:
     values:
-      - values-stage.yaml  # Archivo de valores para stage
+      - values-stage.yaml  
 
 ---
 repositories:

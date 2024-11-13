@@ -38,6 +38,8 @@ spec:
                 name: {{ include "reto-tecnico.fullname" $ }}
                 port:
                   number: {{ $.Values.service.port }}
-          {{- end }}
+          {{- end }}     
     {{- end }}
+  ingressClassName: nginx 
 {{- end }}
+
