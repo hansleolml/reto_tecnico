@@ -3,7 +3,7 @@ entries:
   probando:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-12T20:40:25.824929426-05:00"
+    created: "2024-11-13T01:52:10.981978927-05:00"
     description: A Helm chart for Kubernetes
     digest: d548fc7bcb77789e7db330d2942f488f1580d07520b42520d3d28e1ec8e2f0d0
     name: probando
@@ -13,7 +13,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-12T20:40:25.824537724-05:00"
+    created: "2024-11-13T01:52:10.981314037-05:00"
     description: A Helm chart for Kubernetes
     digest: fa504cbb6b2dc062b7de6b0150a4bf4e672fcc4bfdde77232753bd9aa9aecc0b
     name: probando
@@ -21,4 +21,15 @@ entries:
     urls:
     - charts/probando-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-12T20:40:25.823995407-05:00"
+  reto-tecnico:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-11-13T01:52:10.98269811-05:00"
+    description: A Helm chart for Kubernetes
+    digest: e73d2fa3bc33d6a482ccf134e79f8cd3694a55a987b41774c3a039d3675aba30
+    name: reto-tecnico
+    type: application
+    urls:
+    - charts/reto-tecnico-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-11-13T01:52:10.979969438-05:00"
