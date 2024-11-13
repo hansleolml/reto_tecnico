@@ -1,20 +1,21 @@
 environments:
   dev:
     values:
-      - values-dev.yaml
+      - values-dev.yaml  # Archivo de valores para dev
   stage:
     values:
-      - values-stage.yaml
+      - values-stage.yaml  # Archivo de valores para stage
 
 ---
 repositories:
   - name: probando
     url: https://hansleolml.github.io/reto_tecnico/helm
-    
+
 releases:
   - name: hello-world
     namespace: default
     chart: retopruebachart/probando
-    secrets: 
-    - "./secrets.yaml"
-    #secrets: true
+    values: 
+      - values-{{ .Environment.Name }}.yaml 
+    secrets:
+      - ./secrets.yaml
