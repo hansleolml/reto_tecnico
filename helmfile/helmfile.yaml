@@ -8,13 +8,13 @@ environments:
 
 ---
 repositories:
-  - name: probando
+  - name: reto-tecnico
     url: https://hansleolml.github.io/reto_tecnico/helm
 
 releases:
-  - name: hello-world
+  - name: reto-tecnico
     namespace: default
-    chart: retopruebachart/probando
+    chart: reto-tecnico/reto-tecnico
     values: 
       - values-{{ .Environment.Name }}.yaml 
     secrets:
