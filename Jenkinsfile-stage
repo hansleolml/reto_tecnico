@@ -1,40 +1,16 @@
 pipeline {
     agent any
-    environment {
-        AZ_DOCKER_KEY_ID     = 'jenkins-user-for-docker-repository'
-        REPOSITORY_DOCKER    = 'hansleolml/reto_tecnico'
-        REPOSITORY_GIT       = 'https://github.com/hansleolml/reto_tecnico.git'
-        AZ_K8S_KEY_ID        = 'jenkins-user-for-k8s-azure'
-        AZ_GIT_KEY_ID        = 'jenkins-user-for-git-repository'
-    }
     stages {
         stage('Git Clone'){
             steps {
                 checkout scm
             }
         }
-        stage('Prueba login') {
-            steps {
-                sh("hostname")
-                sh("whoami")
-                sh("ls -la")
-            }
-        }
-        stage('Conditional deploy') { 
+        stage('Deploy') { 
             steps { 
                 dir("helmfile") {
                     script { 
-                        def branchName = sh(script: "git rev-parse --abbrev-ref HEAD", returnStdout: true).trim()
-                        if (branchName == 'values-dev.yaml') { 
-                            //echo "El archivo modificado es: ${lastModifiedFile}" 
-                            sh "helmfile -e dev apply" 
-                        } else if (branchName == 'values-stage.yaml') { 
-                            //echo "El archivo modificado no es el esperado: ${lastModifiedFile}" 
-                            sh "helmfile -e stage apply"
-                        } else {
-                            echo "El archivo modificado es: ${branchName}"
-                            echo "No se realizara ningun cambio"   
-                        }
+                        sh("helmfile -e dev apply")
                     }
                 } 
             } 
