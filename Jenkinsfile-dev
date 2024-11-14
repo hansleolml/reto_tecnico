@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Git Clone'){
             steps {
-                git credentialsId: AZ_GIT_KEY_ID, url: REPOSITORY_GIT
+                checkout scm
             }
         }
         stage('Prueba login') {
@@ -24,17 +24,16 @@ pipeline {
             steps { 
                 dir("helmfile") {
                     script { 
-                        def lastModifiedFile = sh(script: 'git diff-tree --no-commit-id --name-only -r HEAD', returnStdout: true).trim() 
-                        if (lastModifiedFile == 'values-dev.yaml') { 
-                            echo "El archivo modificado es: ${lastModifiedFile}" 
+                        def branchName = sh(script: "git rev-parse --abbrev-ref HEAD", returnStdout: true).trim()
+                        if (branchName == 'values-dev.yaml') { 
+                            //echo "El archivo modificado es: ${lastModifiedFile}" 
                             sh "helmfile -e dev apply" 
-                        } else if (lastModifiedFile == 'values-stage.yaml') { 
-                            echo "El archivo modificado no es el esperado: ${lastModifiedFile}" 
-                            sh'pwd'
+                        } else if (branchName == 'values-stage.yaml') { 
+                            //echo "El archivo modificado no es el esperado: ${lastModifiedFile}" 
                             sh "helmfile -e stage apply"
                         } else {
-                            echo "No se realizara ningun cambio"
-                            echo "El archivo modificado no es el esperado: ${lastModifiedFile}"         
+                            echo "El archivo modificado es: ${branchName}"
+                            echo "No se realizara ningun cambio"   
                         }
                     }
                 } 
