@@ -5,7 +5,6 @@ environments:
   stage:
     values:
       - values-stage.yaml  
-
 ---
 repositories:
   - name: reto-tecnico
