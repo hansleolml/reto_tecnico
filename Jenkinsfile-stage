@@ -10,7 +10,6 @@ pipeline {
             steps { 
                 dir("helmfile") {
                     script {
-                        sh("cat helmfile.yaml")
                         sh("helmfile -e stage apply")
                     }
                 } 
