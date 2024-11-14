@@ -1,11 +1,13 @@
 environments:
   dev:
     values:
-      - values-dev.yaml 
+      - values-dev.yaml
   stage:
     values:
-      - values-stage.yaml  
+      - values-stage.yaml
+
 ---
+
 repositories:
   - name: reto-tecnico
     url: https://hansleolml.github.io/reto_tecnico/helm
