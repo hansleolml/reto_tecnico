@@ -10,7 +10,7 @@ pipeline {
             steps { 
                 dir("helmfile") {
                     script { 
-                        sh("helmfile -e dev apply")
+                        sh("helmfile -e stage apply")
                     }
                 } 
             } 
