@@ -66,7 +66,7 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: hansquirozm.com
+    - host: dev.hansquirozm.com
       paths:
         - path: /
           pathType: Prefix

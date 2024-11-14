@@ -13,7 +13,7 @@ repositories:
 
 releases:
   - name: reto-tecnico
-    namespace: default
+    namespace: {{ .Environment.Name }}
     chart: reto-tecnico/reto-tecnico
     values: 
       - values-{{ .Environment.Name }}.yaml 
