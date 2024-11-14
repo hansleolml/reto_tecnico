@@ -9,7 +9,8 @@ pipeline {
         stage('Deploy') { 
             steps { 
                 dir("helmfile") {
-                    script { 
+                    script {
+                        sh("cat helmfile.yaml")
                         sh("helmfile -e stage apply")
                     }
                 } 
