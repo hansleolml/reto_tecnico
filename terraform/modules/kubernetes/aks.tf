@@ -44,6 +44,11 @@ resource "azurerm_kubernetes_cluster" "aks_01" {
     #max_count      = var.default_node_pool_max_count
     vm_size        = var.default_node_pool_vm_size
     vnet_subnet_id = var.default_node_pool_vnet_subnet_id
+    upgrade_settings {
+      drain_timeout_in_minutes = 0
+      max_surge = "10%"
+      node_soak_duration_in_minutes = 0
+    }
   }
 
   identity {
