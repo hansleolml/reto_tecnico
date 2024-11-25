@@ -57,6 +57,7 @@ resource "azurerm_kubernetes_cluster" "aks_01" {
 
   tags = {
     Environment = "Production"
+    Environment2 = "challenge"
   }
 }
 
