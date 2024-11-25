@@ -18,4 +18,4 @@ releases:
     values: 
       - values-{{ .Environment.Name }}.yaml 
     secrets:
-      - ./secrets.yaml
+      - ./secrets2.yaml
