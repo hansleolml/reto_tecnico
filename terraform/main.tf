@@ -27,6 +27,17 @@ resource "azurerm_network_security_group" "nsg_01" {
     destination_address_prefix = "*"
   }
   security_rule {
+    name                       = "AllowAnyCustom80Inbound"
+    priority                   = 120
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "*"
+    source_port_range          = "*"
+    destination_port_range     = "80"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+  security_rule {
     name                       = "rule-inbound-8080"
     priority                   = 110
     direction                  = "Inbound"
